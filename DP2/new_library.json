@@ -1,6 +1,17 @@
-{
-    "null": {
-        "id": 2,
-        "name": "Author B"
+[
+    {
+        "title": "Book 1",
+        "author": "Author A",
+        "year": 2020
+    },
+    {
+        "title": "Book 2",
+        "author": "Author B",
+        "year": 2018
+    },
+    {
+        "title": "Book 3",
+        "author": "Author A",
+        "year": 2019
     }
-}
+]

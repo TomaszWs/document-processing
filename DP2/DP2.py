@@ -2,7 +2,7 @@
 # 1. Read the JSON data from 'data1.json'.
 # 2. Extract and print all the sentences.
 
-import json
+# import json
 
 # file = open("C:/Users/Stani/Desktop/Document_processing/DP2/data.json")
 # data = json.load(file)
@@ -46,7 +46,10 @@ nlp_results = [
 
 # Exercise 4:
 # 1. Read the data from 'books.json' and 'authors.json'.
-# 2. Combine the data to create a new JSON file that includes author names with book information.
+# 2. Combine the data to create a new JSON file that includes author names with
+# book information.
+
+import json
 
 books = open("C:/Users/Stani/Desktop/Document_processing/DP2/books.json", "r")
 authors = open("C:/Users/Stani/Desktop/Document_processing/DP2/authors.json", "r")
@@ -54,13 +57,15 @@ book_file = json.load(books)
 authors_file = json.load(authors)
 
 combined = {}
-for i in book_file:
-    for x in authors_file:
-        if i.get("id") == x.get("author_id"):
-            combined.update({i.get("name"): x})
-print(book_file)
+final_data = []
+author_id_to_name = {author["id"]: author["name"] for author in authors_file}
+for book in book_file:
+    author_name = author_id_to_name.get(book.get("author_id"))
+    new_entry = {"title": book["title"], "author": author_name,
+                 "year": book["year"]}
+    final_data.append(new_entry)
 new_library = open("new_library.json", "w")
-json.dump(combined, new_library, indent=4)
+json.dump(final_data, new_library, indent=4)
 
 books.close()
 authors.close()
