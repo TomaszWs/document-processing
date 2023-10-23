@@ -1,0 +1,5 @@
+[
+  {"title": "Book 1", "author_id": 1, "year": 2020},
+  {"title": "Book 2", "author_id": 2, "year": 2018},
+  {"title": "Book 3", "author_id": 1, "year": 2019}
+]
